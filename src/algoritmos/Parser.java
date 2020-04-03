@@ -32,7 +32,7 @@ public class Parser {
     public Parser() {
     }
 
-    //Metodo para leer una pagina web en busca de enlaces y su descripcion 
+    //Metodo para leer una pagina web en busca de enlaces y su descripcion . A su vez llama al resto de metodos pasando los diferentes arraylist
     public void analizarUrl() throws IOException {
 
         System.out.println("Introduzca la url (formato correcto: www.ejemplo.com) ");
@@ -64,6 +64,7 @@ public class Parser {
 
             //LLAMADA A METODOS QUE HACEN EL RESTO DE OPERACIONES
             cortarUrl(listaLinks);
+            contarDuplicados(listaLinksCortos); //NO FUNCIONA PORQUE ESTA INCOMPLETO. NO DEVUELVE NADA
             buscarDuplicados(listaLinksCortos);
             filtrarUrl(urlCorta, listaLinksDuplicados);
 
@@ -95,6 +96,7 @@ public class Parser {
         return response.statusCode();
     }
 
+    //metodo para cortar las url encontradas a partir del primer / . Crea otro arraylist diferente con las url cortas
     public void cortarUrl(ArrayList<Links> listaLinks) {
 
         System.out.println("LISTADO DE TODAS LAS URL'S ENCONTRADAS EN FORMATO CORTO: \n");
@@ -111,6 +113,29 @@ public class Parser {
             System.out.println(enlaceCorto);
             listaLinksCortos.add(enlaceCorto);
             contador++;
+        }
+        System.out.println("\n**************************************************\n");
+    }
+
+    //metodo para contar cuantas veces se repite una misma url en el arraylist
+    public void contarDuplicados(ArrayList<Links> listaLinks) {
+
+        int contador = 1;
+        boolean repetido = false;
+
+        for (int i = 0; i < listaLinks.size(); i++) {
+            for (int j = 0; j < listaLinks.size(); j++) {
+                if (listaLinks.get(i) == listaLinks.get(j)) {
+                    contador++;
+                    repetido = true;
+                    break;
+                }
+            }
+            if (repetido) {
+                //aqui ya no se que hacer si es repetido
+            } else {
+
+            }
         }
         System.out.println("\n**************************************************\n");
     }
@@ -158,7 +183,7 @@ public class Parser {
                 contadorCoincidencias++;
             }
         }
-        
+
         System.out.println("\n**************************************************\n");
     }
 }

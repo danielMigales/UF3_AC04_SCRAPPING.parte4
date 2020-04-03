@@ -32,17 +32,22 @@ public class Menu {
         boolean salir = true;
 
         do {
-            System.out.println("\n******************MENU PRINCIPAL******************\n");
+            System.out.println("\n*******************************************************MENU PRINCIPAL************************************************\n");
             System.out.println(ANSI_BLUE + "1. SCRAPPING WEB:" + ANSI_RESET);
             System.out.println("\tExtrae todas las url de una web, las recorta (hasta el .com/) y las compara entre si separando las repetidas.");
             System.out.println("\tFinalmente analiza las url resultantes y extrae las que corresponden a la url introducida, quedando solo las url externas");
-            System.out.println("\tLos datos son almacenados en la base de datos llamada scrapping, en la tabla datosWeb (creacion automatica).\n");
+            System.out.println("\tLos datos son almacenados en la base de datos llamada scrapping, en la tabla datosWeb (creacion automatica).");
+            System.out.println("\tSe imprimira en pantalla: ");
+            System.out.println("\t\tLISTADO DE TODOS LOS ENLACES ENCONTRADOS EN LA WEB");
+            System.out.println("\t\tLISTADO DE TODAS LAS URL'S ENCONTRADAS EN FORMATO CORTO");
+            System.out.println("\t\tLISTADO SIN LAS URL'S REPETIDAS");
+            System.out.println("\t\tLISTADO DE TODAS LAS URL EXTERNAS\n");
             System.out.println(ANSI_BLUE + "2. CONSULTAR LOS REGISTROS INTRODUCIDOS EN LA BASE DE DATOS:" + ANSI_RESET);
             System.out.println("\tVisualiza en consola todos los registros existentes en la base de datos scrapping.\n");
             System.out.println(ANSI_BLUE + "3 SALIR DEL PROGRAMA.\n" + ANSI_RESET);
             System.out.println("Seleccione una opcion:");
             seleccion = entrada.nextInt();
-            System.out.println("\n**************************************************\n");
+            System.out.println("\n***************************************************************************************************************************n");
 
             switch (seleccion) {
                 case 1: {
